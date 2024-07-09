@@ -1,0 +1,57 @@
+%第一章
+
+\section{绪论}
+\subsection{简单介绍}
+\subsubsection{插入表格}
+需要分段的文字换行两次就可以分隔开了，\LaTeX 会帮助你整理格式。
+
+你看如果这样就能分三段了，如果需要加粗可以选中要\textbf{加粗的字}，按ctrl+b快捷加粗。下划线则需要自己键入指令：\underline{下划线}。
+
+\subsubsection{插入表格}
+可以直接通过将图片粘贴到这里，选择上传到的文件夹，修改图片名称即可。可以直接拖拽文件到文件夹，点确定就行了，图片都会在云端存储，不用担心，也可以跨项目上传。在文中引用图片使用\ref{fig:exm}命令即可。
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\linewidth]{figs/image.png}
+    \caption{bjh好美}
+    \label{fig:exm}
+\end{figure}
+
+\subsubsection{插入图表}如表\ref{tab:example}所示，表格也可以去在线生成，或者复制Excel里的格式扔给gpt啥的生成\LaTeX 代码就行。
+
+\begin{table}[h]
+\centering
+\caption{示例表格}
+\label{tab:example}
+\renewcommand{\arraystretch}{1.3} % 设置行高为1.3倍，默认是1.0，有需要的添加上去改
+\begin{tabular}{ccc}%有几个c代表有几列，c代表居中，l和r分别表示靠左或靠右。
+\toprule
+列1 & 列2 & 列3 \\%每列的数据由&分隔。
+\midrule
+数据1 & 数据2 & 数据3 \\
+数据4 & 数据5 & 数据6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{插入公式}公式如果带编号则需要包裹在下面的环境中，\LaTeX 公式编辑建议去网上搜在线的生成器，或者Axmath这种软件，很方便的，但用熟练的话就能自己打了，我随便打一个吧。
+\begin{equation}
+    X\left[ k \right] =\sum_{m=0}^{M-1}{x\left[ m \right] \left( \cos \left( \frac{2\pi}{M}km \right) -\ j\sin \left( \frac{2\pi}{M}km \right) \right)},
+\end{equation}
+如果是多组公式的话可以用aligned包裹，或者挨个equation就行了。举个栗子，注意各个公式之间的换行符。%注意这里没和上面的公式隔开一行，所以不是新的段落，没有首行缩进字符。
+
+\begin{equation}
+    \begin{aligned}
+        X\left[ k \right] =\sum_{m=0}^{M-1}{x\left[ m \right] \left( \cos \left( \frac{2\pi}{M}km \right) -\ j\sin \left( \frac{2\pi}{M}km \right) \right)},\\
+        X\left[ k \right] =\sum_{m=0}^{M-1}{x\left[ m \right] \left( \cos \left( \frac{2\pi}{M}km \right) -\ j\sin \left( \frac{2\pi}{M}km \right) \right)},\\
+        X\left[ k \right] =\sum_{m=0}^{M-1}{x\left[ m \right] \left( \cos \left( \frac{2\pi}{M}km \right) -\ j\sin \left( \frac{2\pi}{M}km \right) \right)},
+    \end{aligned}
+\end{equation}
+
+关于正文中如果想要插入公式的话需要dollar符号包裹，比如$ conv\ 3 \times 3$，也可以用\( \)，空格通常需要以$\ $形式出现。
+
+\subsubsection{参考文献}需要去找文献的bibtex格式，把复制到paper.bib这个文件里面，然后在文中\cite{nussbaumer1982fast}即可，默认的引用就是上引，不需要再修改了。后面的参考文献也会自动生成。
+
+\subsubsection{小标题不会自动换行}ctrl+s或者ctrl+enter进行编译，有问题就多编译几次，右边会生成pdf的预览，随时关注生成的效果。
+
+
+\newpage%分页指令
