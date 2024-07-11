@@ -24,6 +24,7 @@
 %\bibliographystyle{gbt7714-numerical}
 \setCJKfamilyfont{hei}{黑体\-简.TTF} 
 \usepackage{titletoc}
+\usepackage{titlesec}
 \usepackage{amssymb}
 \usepackage{siunitx}
 \captionsetup[figure]{aboveskip=6pt, labelformat=default, labelsep=space, font=small}
@@ -61,19 +62,22 @@
 \titleformat{\section}{\centering\bfseries\heiti\zihao{3}}{\thesection}{1em}{\heiti\zihao{3}}
 
 \renewcommand{\thesection}{第\arabic{section}章}
-
 \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-
 \renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
+
 \renewcommand\refname{参考文献}
 \setlength{\bibsep}{0pt}
 \titlespacing{\section}{6pt}{*2}{*2}
 \titlespacing{\subsection}{0pt}{4pt}{6pt}
 \titlespacing{\subsubsection}{0pt}{6pt}{6pt}
+\titlespacing{\paragraph}{0pt}{6pt}{6pt}
 
 \titleformat{\subsection}{\bfseries\heiti\zihao{4}}{{\thesubsection}}{0.5em}{\heiti\zihao{4}}
 \titleformat{\subsubsection}{\bfseries\heiti\zihao{-4}}{{\thesubsubsection}}{0.5em}{\heiti\zihao{-4}}
+\titleformat{\paragraph}[hang]{\zihao{-4}}{\theparagraph}{0.5em}{\zihao{-4}}
 
+\setcounter{secnumdepth}{4}
 
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}} 
 
