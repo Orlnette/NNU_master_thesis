@@ -1,118 +1,17 @@
-%%----------- 格式控制 ----------- %%
-\documentclass[12pt, a4paper]{article}
-\usepackage[numbers]{gbt7714}
-\usepackage[heading]{ctex} 
-\usepackage{xeCJK}
-\usepackage[hidelinks]{hyperref}
-\usepackage[final]{pdfpages} 
-\usepackage{natbib}
-\usepackage{booktabs}
-\usepackage{tabularx}
-\usepackage{multirow}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{geometry}
-\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
-\usepackage{setspace}
-\setlength{\baselineskip}{20pt}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
-\usepackage{fancyhdr}
-\usepackage{caption}
-
-\setCJKfamilyfont{song}{SimSun}
-%\bibliographystyle{gbt7714-numerical}
-\setCJKfamilyfont{hei}{黑体\-简.TTF} 
-\usepackage{titletoc}
-\usepackage{titlesec}
-\usepackage{amssymb}
-\usepackage{siunitx}
-\captionsetup[figure]{aboveskip=6pt, labelformat=default, labelsep=space, font=small}
-\captionsetup[table]{belowskip=12pt, aboveskip=6pt, labelformat=default, labelsep=space, font=small}
-%\setlength{\belowcaptionskip}{0pt}
-%控制caption的格式和字体
-
-\titlecontents{section}[0pt]{\addvspace{0pt}\filright}
-{\contentspush{\thecontentslabel\ \ }}              
-{}{\titlerule*[4pt]{.}\contentspage}
-\titlecontents{subsection}[1.7em]{\addvspace{0pt}\filright}
-{\contentspush{\thecontentslabel\ \ }}              
-{}{\titlerule*[4pt]{.}\contentspage}
-\titlecontents{subsubsection}[3em]{\addvspace{0pt}\filright}
-{\contentspush{\thecontentslabel\ \ }}              
-{}{\titlerule*[4pt]{.}\contentspage}
-
-\renewcommand{\listfigurename}{图目录}
-\titlecontents{figure}[0pt]{\addvspace{0pt}\filright}
-{\figurename~\thecontentslabel\ \ }{}{\titlerule*[4pt]{.}\contentspage}
-\renewcommand{\listtablename}{表目录}
-\titlecontents{table}[0pt]{\addvspace{0pt}\filright}
-{\tablename~\thecontentslabel\ \ }{}{\titlerule*[4pt]{.}\contentspage}
-%控制目录、图目录、表目录格式
-
-\usepackage{titlesec}
-\counterwithin{figure}{section}
-\counterwithin{equation}{section}
-\counterwithin{table}{section}
-\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
-\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
-%控制表格、图表、公式的编号格式
-
-\titleformat{\section}{\centering\bfseries\heiti\zihao{3}}{\thesection}{1em}{\heiti\zihao{3}}
-
-\renewcommand{\thesection}{第\arabic{section}章}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-\renewcommand{\theparagraph}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}}
-
-\renewcommand\refname{参考文献}
-\setlength{\bibsep}{0pt}
-\titlespacing{\section}{6pt}{*2}{*2}
-\titlespacing{\subsection}{0pt}{4pt}{6pt}
-\titlespacing{\subsubsection}{0pt}{6pt}{6pt}
-\titlespacing{\paragraph}{0pt}{6pt}{6pt}
-
-\titleformat{\subsection}{\bfseries\heiti\zihao{4}}{{\thesubsection}}{0.5em}{\heiti\zihao{4}}
-\titleformat{\subsubsection}{\bfseries\heiti\zihao{-4}}{{\thesubsubsection}}{0.5em}{\heiti\zihao{-4}}
-\titleformat{\paragraph}[hang]{\zihao{-4}}{\theparagraph}{0.5em}{\zihao{-4}}
-
-\setcounter{secnumdepth}{4}
-
-\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}} 
-
-\renewcommand{\headrulewidth}{0.05mm}
-\setcitestyle{super}
-\title{}
-\date{}
+%%----------- 主文档 ----------- %%
+\documentclass{nnuthesis} % 使用自定义类文件
 
 \begin{document}
 
-%编译模式设置为XeLaTex，XeLaTex，XeLaTex
-\newgeometry{left = 2.54cm, right = 2.54cm, top = 3.18cm, bottom = 3.18cm}
-
-% 从这里开始写，前面是声明宏包和格式的语句，正常情况不需要变动。
-
 %%----------- 前言部分 ----------- %%
-%word格式的封面文件在cover/doc下，自行填写转换为pdf即可
-\includepdf{cover/cover.pdf} %将封面放到cover文件夹中以“cover.pdf”命名，然后套用该语句使用。学术原创性声明同上，插到对应位置即可。
-
-
-\input{pages/abstract} %中英文摘要
+\newgeometry{left=2.54cm, right=2.54cm, top=3.18cm, bottom=3.18cm}
+\includepdf{cover/cover.pdf} % 封面文件
+\input{pages/abstract} % 中英文摘要
 
 %%----------- 目录格式 ----------- %%
 \restoregeometry
 \newpage
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[CO, CE]{\leftmark}
-\fancyfoot[CO, CE]{\thepage}
-
-\newpage
-
-%\pagenumbering{arabic}
-\tableofcontents  
+\tableofcontents
 \markboth{目录}{目录}
 \newpage
 
@@ -130,24 +29,21 @@
 
 %%----------- 主体部分 ----------- %%
 \pagenumbering{arabic}
-%章节不够可以加
-
-\input{pages/Section1} %第1章
-\input{pages/Section2} %第2章
-\input{pages/Section3} %第3章
+\input{pages/Section1} % 第1章
+\input{pages/Section2} % 第2章
+\input{pages/Section3} % 第3章
 
 %%----------- 结尾部分 ----------- %%
-
-\input{pages/appendix} %附录(如有)
+\input{pages/appendix} % 附录(如有)
 
 \clearpage
 \phantomsection
-\addcontentsline{toc}{section}{参考文献} %参考文献
+\addcontentsline{toc}{section}{参考文献} % 参考文献
 \fancyhead[C]{参考文献}
-\bibliography{ref/paper} % 此处 paper 换成你的 bib 文件名字，若文件名字不变就不用修改。
+\bibliography{ref/paper} % bib文件
 \newpage
 
-\input{pages/papers} %show time
-\input{pages/thanks} %致谢
+\input{pages/papers} % show time
+\input{pages/thanks} % 致谢
 
 \end{document}
