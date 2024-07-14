@@ -30,9 +30,9 @@
 
 %%----------- 字体设置 ----------- %%
 \setmainfont{Times New Roman}
-\newCJKfontfamily{\cusong}[AutoFakeBold={2.17}]{SimSun} % 本地编译粗宋体
-\setCJKfamilyfont{song}{SimSun}
-\setCJKfamilyfont{hei}{黑体\-简.TTF}
+%\newCJKfontfamily{\cusong}[AutoFakeBold={2.17}]{SimSun} % 本地编译粗宋体
+\setCJKmainfont{SimSun.ttc}
+\setCJKfamilyfont{hei}{SimHei.ttf}
 
 %%----------- 目录设置 ----------- %%
 \titlecontents{section}[0pt]{\addvspace{0pt}\filright}
@@ -84,7 +84,7 @@
 \renewcommand{\tableautorefname}{表}
 \renewcommand{\arraystretch}{1.3}
 
-\renewcommand{\headrulewidth}{0.05mm}
+\renewcommand{\headrulewidth}{0.5pt}
 
 %%----------- 参考文献设置 ----------- %%
 \renewcommand\refname{参考文献}
@@ -108,8 +108,8 @@
 \newpage
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[CO, CE]{\leftmark}
-\fancyfoot[CO, CE]{\thepage}
+\fancyhead[CO, CE]{\zihao{5} \leftmark}
+\fancyfoot[CO, CE]{\zihao{5} \thepage}
 
 %%----------- 目录格式 ----------- %%
 \tableofcontents
@@ -140,7 +140,7 @@
 \clearpage
 \phantomsection
 \addcontentsline{toc}{section}{参考文献} % 参考文献
-\fancyhead[C]{参考文献}
+\fancyhead[C]{\zihao{5} 参考文献}
 \bibliography{ref/paper} % bib文件
 \newpage
 
